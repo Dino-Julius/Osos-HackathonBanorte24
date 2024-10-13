@@ -1,0 +1,51 @@
+/* Container that holds the card buttons */
+.sidebar-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Card-like button styles */
+  .card-button {
+    width: 80px;
+    height: 80px;
+    background-color: #f5f5f5;
+    border: 2px solid #eb0029;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  /* Hover effect for the card buttons */
+  .card-button:hover {
+    background-color: #eb0029;
+    transform: translateY(-5px);
+  }
+  
+  .card-button:hover svg {
+    color: white; /* Make the icon white on hover */
+  }
+  
+  /* Media query to hide sidebar on small screens */
+  @media (max-width: 600px) {
+    .sidebar-card-container {
+      display: none; /* Hide the sidebar when the screen is smaller than 600px */
+    }
+  }
+  
+  /* Estilo para el título */
+.sidebar-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 210px; /* Espaciado entre el título y los botones */
+    text-align: center;
+    color: #eb0029; /* Puedes ajustar el color si lo deseas */
+    font-family: 'Gotham', sans-serif;
+  }
+  

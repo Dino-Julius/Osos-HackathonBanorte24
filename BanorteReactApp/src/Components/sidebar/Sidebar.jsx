@@ -1,16 +1,25 @@
 import React from 'react';
+import { UilTrashAlt, UilFileAlt, UilHistory } from '@iconscout/react-unicons'; // Import Unicons
 import './Sidebar.css'; // Import the styles for this component
 
 function Sidebar() {
   return (
-    <div className="sidebar-card-container">
-      <div className="card-button" onClick={() => console.log("Card 1 clicked")}>
-        <h3>Card 1</h3>
-        <p>Click me!</p>
+    <div>
+      {/* Título en la parte superior */}
+      <div className="sidebar-title">
+        Banorte Intelligence
       </div>
-      <div className="card-button" onClick={() => console.log("Card 2 clicked")}>
-        <h3>Card 2</h3>
-        <p>Click me!</p>
+
+      <div className="sidebar-card-container">
+        <div className="card-button" onClick={() => console.log("Trash clicked")}>
+          <UilTrashAlt size="40" color="#eb0029" /> {/* Icon for trash */}
+        </div>
+        <div className="card-button" onClick={() => console.log("Document clicked")}>
+          <UilFileAlt size="40" color="#eb0029" /> {/* Icon for document */}
+        </div>
+        <div className="card-button" onClick={() => console.log("History clicked")}>
+          <UilHistory size="40" color="#eb0029" /> {/* Icon for history */}
+        </div>
       </div>
     </div>
   );

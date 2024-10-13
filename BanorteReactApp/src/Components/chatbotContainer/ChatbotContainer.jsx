@@ -32,7 +32,7 @@ function ChatbotContainer() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             className="chatbot-input"
-            placeholder="Correo electrónico"
+            placeholder="Esrcibe un mensaje..."
           />
           {input && (
             <button className="clear-button" onClick={() => setInput("")}>
@@ -41,7 +41,7 @@ function ChatbotContainer() {
           )}
         </div>
         <button onClick={handleSendMessage} className="chatbot-send-button">
-          Send
+          Envíar {/* Send button */}
         </button>
       </div>
     </div>

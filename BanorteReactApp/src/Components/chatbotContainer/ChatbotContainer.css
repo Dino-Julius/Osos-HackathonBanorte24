@@ -1,3 +1,4 @@
+/* Contenedor principal del chatbot */
 .chatbot-container {
     flex: 1;
     max-width: 100%;
@@ -8,57 +9,79 @@
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid #ccc;
-    margin-left: 20px; /* Añade espacio a la izquierda si es necesario */
-  }
-  
-  .chatbot-dialogs {
+    margin-left: 20px;
+}
+
+/* Contenedor de los mensajes */
+.chatbot-dialogs {
     flex: 1;
     padding: 15px;
     overflow-y: auto;
     background-color: white;
     border-bottom: 1px solid #ccc;
-  }
-  
-  
-  .chatbot-message {
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 10px;
-    max-width: 75%;
-  }
-  
-  .user-message {
-    background-color: #eb0029;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Añade espacio entre los mensajes */
+}
+
+/* Mensajes en el contenedor del chatbot */
+.chatbot-message {
+    padding: 15px; /* Aumenta el padding para hacer los mensajes más grandes */
+    margin: 10px 0; /* Aumenta el margen entre los mensajes */
+    border-radius: 8px; /* Borde ligeramente redondeado */
+    max-width: 70%; /* Ancho máximo más amplio para que los mensajes largos ocupen más espacio */
+    word-wrap: break-word; /* Permite dividir palabras largas */
+    font-size: 16px; /* Ajuste del tamaño de la fuente */
+    background-color: #fff; /* Fondo blanco para el contenedor del mensaje */
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera para darle efecto de caja */
+    position: relative;
+}
+
+/* Mensaje del usuario, alineado a la derecha */
+.user-message {
+    background-color: #eb0029; /* Fondo rojo para el mensaje del usuario */
     color: white;
-    font-family: 'Roboto', sans-serif;
     align-self: flex-end;
-  }
-  
-  .bot-message {
-    background-color: #ddd;
-    color: black;
+    margin-right: 15px;
+    text-align: left;
+    border-radius: 8px;
     font-family: 'Roboto', sans-serif;
+    padding: 7px;
+}
+
+/* Mensaje del bot, alineado a la izquierda */
+.bot-message {
+    background-color: #ddd; /* Fondo gris claro para el mensaje del bot */
+    color: black;
     align-self: flex-start;
-  }
-  
-  .chatbot-input-wrapper {
+    margin-left: 15px;
+    text-align: left;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    padding: 7px;
+}
+
+/* Contenedor para la entrada de texto */
+.chatbot-input-wrapper {
     display: flex;
     align-items: center;
     padding: 10px;
     background-color: #fff;
     border-top: 1px solid #ccc;
-  }
-  
-  .chatbot-input-container {
+}
+
+/* Estilos del campo de entrada */
+.chatbot-input-container {
     display: flex;
     flex: 1;
     background-color: #f5f5f5;
     border-bottom: 2px solid #333;
     align-items: center;
     padding: 10px;
-  }
-  
-  .chatbot-input {
+}
+
+/* Entrada de texto */
+.chatbot-input {
     flex: 1;
     border: none;
     background: none;
@@ -67,21 +90,14 @@
     font-size: 15px;
     font-family: 'Roboto', sans-serif;
     color: #333;
-  }
-  
-  .chatbot-input::placeholder {
+}
+
+.chatbot-input::placeholder {
     color: #999;
-  }
-  
-  .clear-button {
-    background: none;
-    border: none;
-    color: #333;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  .chatbot-send-button {
+}
+
+/* Botón para enviar el mensaje */
+.chatbot-send-button {
     background-color: #eb0029;
     color: white;
     border: none;
@@ -89,9 +105,15 @@
     margin-left: 10px;
     border-radius: 10px;
     cursor: pointer;
-  }
-  
-  .chatbot-send-button:hover {
+}
+
+.chatbot-send-button:hover {
     background-color: #c10024;
-  }
-  
+}
+
+/* Ocultar el campo de entrada de texto si es necesario en pantallas pequeñas */
+@media (max-width: 600px) {
+    .chatbot-container {
+        height: 500px; /* Ajustar la altura en pantallas más pequeñas */
+    }
+}
