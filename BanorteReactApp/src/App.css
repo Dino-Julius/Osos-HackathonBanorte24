@@ -1,0 +1,29 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.AppBACK {
+    background: #eb0029;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;  /* Prevents any overflow */
+}
+
+.App{
+    background: #ffffff;
+    height: 90vh;
+    width: 95vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 30px;
+}

@@ -1,0 +1,80 @@
+/* Reset the body and html default margin and padding */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+.WAppBACK {
+    background: #eb0029;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;  /* Prevents any overflow */
+}
+
+.WApp {
+    background: #ffffff;
+    height: 90vh;
+    width: 95vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 30px;
+    overflow: hidden; /* Ensures cards stay within the red area */
+}
+
+.card {
+    min-width: 300px;
+    min-height: 150px;
+    background-color: #e10000;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    max-width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.card-content {
+    padding: 10px;
+    max-height: 100%;
+    overflow-y: auto; /* Add scrolling if content exceeds height */
+}
+
+.card-hover {
+    background-color: #960023;
+    color: #fff;
+    transform: scale(1.2);  /* Increase scale a bit */
+    padding: 20px; /* Add some padding to ensure the content has space */
+    max-width: calc(100% - 40px); /* Ensure card stays within red container */
+    max-height: calc(100% - 40px); /* Same for height */
+    overflow: auto; /* Ensure content can be scrolled if necessary */
+}
+
+@media (max-width: 768px) {
+    .function-card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 300px;
+        max-height: 150px;
+        transform: scale(1); /* Remove scaling on small screens */
+    }
+}
