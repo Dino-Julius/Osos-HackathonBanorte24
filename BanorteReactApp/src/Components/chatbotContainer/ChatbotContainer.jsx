@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "./ChatbotContainer.css";
 
 function ChatbotContainer() {
+  const location = useLocation();
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+
+  useEffect(() => {
+    if (location.state?.prompt) {
+      setInput(location.state.prompt); // Set the initial prompt in the input
+    }
+  }, [location.state]);
 
   const handleSendMessage = () => {
     if (input.trim()) {
       setMessages([...messages, { text: input, sender: "user" }]);
       setInput("");
-      // Simulate a bot response if needed
     }
   };
 
@@ -32,7 +39,7 @@ function ChatbotContainer() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             className="chatbot-input"
-            placeholder="Esrcibe un mensaje..."
+            placeholder="Escribe un mensaje..."
           />
           {input && (
             <button className="clear-button" onClick={() => setInput("")}>
@@ -41,7 +48,7 @@ function ChatbotContainer() {
           )}
         </div>
         <button onClick={handleSendMessage} className="chatbot-send-button">
-          Envíar {/* Send button */}
+          Enviar {/* Send button */}
         </button>
       </div>
     </div>
