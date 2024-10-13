@@ -130,11 +130,11 @@ function ChatbotContainer() {
         <df-messenger
           location="us-central1"
           project-id="gcp-banorte-hackaton-team-1"
-          agent-id="c9231618-8bbb-47df-a8f7-79069c29d6ce"
+          agent-id="ac0f27e9-2054-43ce-9727-00d6e1d692e5"
           language-code="es-419"
           max-query-length="-1"
         >
-          <df-messenger-chat-bubble chat-title="BanorteHackathon24"></df-messenger-chat-bubble>
+          <df-messenger-chat-bubble chat-title="Banorte Intelligence"></df-messenger-chat-bubble>
         </df-messenger>
       )}
     </div>
