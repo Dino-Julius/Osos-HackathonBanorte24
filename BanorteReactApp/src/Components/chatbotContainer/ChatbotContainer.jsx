@@ -54,38 +54,38 @@ function ChatbotContainer() {
   };
 
   // Función para hacer la llamada a la API de Dialogflow
-  // Función para hacer la llamada a la API de Dialogflow (sin autenticación)
-const getBotResponse = async (message) => {
-  const projectId = "gcp-banorte-hackaton-team-1"; // Project ID de Dialogflow
-  const sessionId = Math.random().toString(36).substring(7); // ID de sesión único para el usuario
+  const getBotResponse = async (message) => {
+    const projectId = "gcp-banorte-hackaton-team-1"; // Project ID de Dialogflow
+    const sessionId = Math.random().toString(36).substring(7); // ID de sesión único para el usuario
+    const apiKey = "your-dialogflow-api-key"; // Reemplaza con tu API key de Dialogflow
 
-  const url = `https://dialogflow.googleapis.com/v2/projects/${projectId}/agent/sessions/${sessionId}:detectIntent`;
+    const url = `https://dialogflow.googleapis.com/v2/projects/${projectId}/agent/sessions/${sessionId}:detectIntent`;
 
-  const requestBody = {
-    queryInput: {
-      text: {
-        text: message,
-        languageCode: "es", // Idioma de la interacción
+    const requestBody = {
+      queryInput: {
+        text: {
+          text: message,
+          languageCode: "es", // Idioma de la interacción
+        },
       },
-    },
+    };
+
+    try {
+      // Realiza la solicitud a la API de Dialogflow usando axios
+      const response = await axios.post(url, requestBody, {
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      // Devuelve el texto de la respuesta del bot
+      return response.data.queryResult.fulfillmentText;
+    } catch (error) {
+      console.error("Error al obtener respuesta del bot:", error);
+      return "Lo siento, hubo un problema al obtener la respuesta del bot.";
+    }
   };
-
-  try {
-    // Realiza la solicitud a la API de Dialogflow usando axios (sin autenticación)
-    const response = await axios.post(url, requestBody, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    // Devuelve el texto de la respuesta del bot
-    return response.data.queryResult.fulfillmentText;
-  } catch (error) {
-    console.error("Error al obtener respuesta del bot:", error);
-    return "Lo siento, hubo un problema al obtener la respuesta del bot.";
-  }
-};
-
 
   return (
     <div className="chatbot-container">
