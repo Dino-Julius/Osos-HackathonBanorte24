@@ -37,6 +37,9 @@
     .sidebar-card-container {
       display: none; /* Hide the sidebar when the screen is smaller than 600px */
     }
+    .sidebar-title{
+        display: none;
+    }
   }
   
   /* Estilo para el título */
